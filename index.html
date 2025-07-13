@@ -1,11 +1,165 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Pensum Interactivo</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pensum Interactivo Completo</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #f9fafb;
+    color: #333;
+  }
+  h1, h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 5px 8px;
+    text-align: left;
+    vertical-align: middle;
+  }
+  th {
+    background: #2980b9;
+    color: white;
+    font-size: 0.9rem;
+  }
+  tr:nth-child(even) {
+    background: #eaf2f8;
+  }
+  input.nota {
+    width: 50px;
+    padding: 3px;
+    font-size: 0.85rem;
+  }
+  button {
+    margin: 1rem 0 2rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.1rem;
+    background: #2980b9;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  button:hover {
+    background: #1c5980;
+  }
+  #resultado {
+    font-weight: bold;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #2c3e50;
+    min-height: 2rem;
+  }
+  /* Estilo para separar semestres */
+  .semestre-title {
+    margin-top: 3rem;
+    background: #2980b9;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    font-size: 1.1rem;
+    border-radius: 4px;
+  }
+</style>
 </head>
 <body>
-  <h1>¡Hola! Este es mi pensum interactivo</h1>
-  <p>Aquí pronto estará disponible todo el contenido.</p>
-</body>
-</html>
+
+<h1>Pensum Interactivo</h1>
+<p style="text-align:center;">Ingresa tu nota (0 a 100) en cada materia y presiona "Calcular graduación".</p>
+
+<!-- Cada semestre en su tabla -->
+
+<div class="semestre">
+  <h2 class="semestre-title">Primer Semestre</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Clave</th><th>Asignatura</th><th>HT</th><th>HP</th><th>CR</th><th>Prerequisitos</th><th>Equivalencias</th><th>Nota</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>ADM-1160</td><td>Proceso Administrativo</td><td>4</td><td>0</td><td>4</td><td>ADM1240, ADM1250, ADM1260</td><td></td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>BIO-0170</td><td>Biología Básica</td><td>2</td><td>0</td><td>2</td><td>BIO0180 / (BIO0180)</td><td>BIO0110, BIO0140</td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>BIO-0180</td><td>Laboratorio de Biología Básica</td><td>0</td><td>2</td><td>1</td><td>BIO0170 / (BIO0170)</td><td>BIO0110, BIO0140</td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>EFI-0120</td><td>Educación Física</td><td>1</td><td>2</td><td>2</td><td></td><td>ART0410, ART0420, ART0510, EFI1700, EFS0110, EFS0120, EXT0110, PED1700</td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>FIL-0110</td><td>Int a la Filosofía</td><td>3</td><td>0</td><td>3</td><td></td><td></td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>LET-0110</td><td>Lengua Española Básica I</td><td>3</td><td>1</td><td>3</td><td>LET0130, LET0150</td><td></td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>MAT-0140</td><td>Matemática Básica</td><td>4</td><td>0</td><td>4</td><td>MAT0120, MAT0130, MAT0840</td><td></td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>OSI-0310</td><td>Orientación Instituc y Académ</td><td>2</td><td>0</td><td>2</td><td>DOP0100, DOP1000, OSI1000</td><td></td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>SOC-0100</td><td>Introd A Las Ciencias Sociales</td><td>3</td><td>0</td><td>3</td><td>ICS0110, SOC0120</td><td></td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>TUR-1140</td><td>Introducción Al Turismo</td><td>3</td><td>0</td><td>3</td><td>ADM1140</td><td></td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="semestre">
+  <h2 class="semestre-title">Segundo Semestre</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Clave</th><th>Asignatura</th><th>HT</th><th>HP</th><th>CR</th><th>Prerequisitos</th><th>Equivalencias</th><th>Nota</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>CON-1170</td><td>Contabilidad General</td><td>3</td><td>2</td><td>4</td><td>MAT0140 / MAT0120 / MAT0130 / MAT0840 / MAT0110</td><td>CON1190</td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>FIS-0180</td><td>Física Básica</td><td>3</td><td>0</td><td>3</td><td>FIS0200 / (FIS0200)</td><td>FIS0140</td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>FIS-0200</td><td>Laboratorio de Física Básica</td><td>0</td><td>3</td><td>1</td><td>FIS0180 / (FIS0180)</td><td>FIS0140</td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>GEO-1490</td><td>Geografia Y Recursos Tur Int</td><td>3</td><td>2</td><td>4</td><td></td><td></td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>HIS-0110</td><td>Fund de Hist Social Dominicana</td><td>3</td><td>0</td><td>3</td><td></td><td>HIS1100</td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>IDI-0310</td><td>Ingles Técnico Para Turismo I</td><td>4</td><td>0</td><td>4</td><td></td><td>LET-0120, LET0130, LET0160</td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>LET-0120</td><td>Lengua Española Básica II</td><td>3</td><td>1</td><td>3</td><td>LET0110 / LET0130 / LET0150</td><td>LET0130, LET0160</td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>QUI-0140</td><td>Química Básica</td><td>2</td><td>3</td><td>3</td><td></td><td>QUI0110, QUI0120, QUI1020</td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>TUR-2250</td><td>Hotelería I</td><td>3</td><td>0</td><td>3</td><td>TUR1140 / ADM1140</td><td>ADM2250</td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>TUR-2280</td><td>Empresas De Servicios Tur</td><td>3</td><td>0</td><td>3</td><td>TUR1140 / ADM1140</td><td>ADM2280</td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="semestre">
+  <h2 class="semestre-title">Tercer Semestre</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Clave</th><th>Asignatura</th><th>HT</th><th>HP</th><th>CR</th><th>Prerequisitos</th><th>Equivalencias</th><th>Nota</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>CRI-3160</td><td>Hist Del Arte Y La Cult Univer</td><td>3</td><td>0</td><td>3</td><td></td><td></td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>GEO-1500</td><td>Geografia Y Recursos Tur Nac</td><td>3</td><td>2</td><td>4</td><td>GEO1490</td><td></td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>IDI-0320</td><td>Ingles Técnico Para Tur II</td><td>4</td><td>0</td><td>4</td><td>IDI0310</td><td></td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>INF-1030</td><td>Introducción A La Informática</td><td>4</td><td>0</td><td>4</td><td>MAT0140 / MAT0110 / MAT0120 / MAT0130 / MAT0840 / MAT1200</td><td>ADM2290, INF1010</td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>MIP-2170</td><td>Microb Conserv Manip Alimentos</td><td>3</td><td>3</td><td>4</td><td>BIO0140 / BIO0110 / BIO0170, BIO0180, QUI0110 / QUI0140</td><td></td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>MUS-3100</td><td>Folklore Dominicano</td><td>2</td><td>0</td><td>2</td><td></td><td></td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>SOC-1270</td><td>Métodos Y Tec De Investigación</td><td>3</td><td>0</td><td>3</td><td>ECN3120, SOC1220, SOC1280, SOC1290</td><td></td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+      <tr><td>TUR-2260</td><td>Hotelería II</td><td>3</td><td>0</td><td>3</td><td>TUR2250 / ADM2250</td><td>ADM2260</td><td><input type="number" min="0" max="100" class="nota"></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="semestre">
+  <h2 class="semestre-title">Cuarto Semestre</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Clave</th><th>Asignatura</th><th>HT</th><th>HP</th><th>CR</th><th>Prerequisitos</th><th>Equivalencias</th><th>Nota</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>DER-2160</td><td>Fundamentos De Derecho Laboral</td><td>3</td><td>0</
+
